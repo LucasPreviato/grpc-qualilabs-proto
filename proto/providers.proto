@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package providers;
+
+service ProviderService {
+  rpc GetProviders(GetProvidersRequest) returns (GetProvidersResponse);
+  rpc GetProvider(GetProviderRequest) returns (GetProviderResponse);
+  rpc CreateProvider(CreateProviderRequest) returns (CreateProviderResponse);
+  rpc UpdateProvider(UpdateProviderRequest) returns (UpdateProviderResponse);
+  rpc DeleteProvider(DeleteProviderRequest) returns (DeleteProviderResponse);
+}
+
+// get providers
+
+message GetProvidersRequest {
+  string name = 1;
+}
+
+message GetProvidersResponse {
+  repeated Provider providers = 1;
+}
+
+// get provider
+message GetProviderData {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message GetProviderRequest {
+  int32 id = 1;
+}
+
+message GetProviderResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  GetProviderData provider = 3;
+}
+
+// create provider
+
+message CreateProviderRequest {
+  string name = 1;
+  string description = 2;
+
+}
+
+message CreateProviderResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
+
+// update provider
+
+message UpdateProviderRequest {
+  Provider provider = 1;
+}
+
+message UpdateProviderResponse {
+  Provider provider = 1;
+}
+
+
+// delete provider
+
+
+message DeleteProviderRequest {
+  string id = 1;
+}
+
+message DeleteProviderResponse {
+  string id = 1;
+}
+
+
