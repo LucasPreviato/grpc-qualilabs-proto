@@ -1,76 +1,119 @@
 syntax = "proto3";
 
 package providers;
+// Entities Protos
+
+message ProviderCategory {
+  string id = 1;
+  string name = 2;
+  bool qualificationRequired = 3;
+  repeated InitialQualificationQuestions initialQualificationQuestions = 4;
+}
+
+message Provider {
+  string id = 1;
+  int32 providerId = 2;
+  string name = 3;
+  string providerCategoryId = 4;
+}
+
+message InitialQualificationQuestions {
+  string id = 1;
+  string providerCategoryId = 2;
+  string question = 3;
+}
+
+// Services Protos
 
 service ProviderService {
-  rpc GetProviders(GetProvidersRequest) returns (GetProvidersResponse);
-  rpc GetProvider(GetProviderRequest) returns (GetProviderResponse);
-  rpc CreateProvider(CreateProviderRequest) returns (CreateProviderResponse);
-  rpc UpdateProvider(UpdateProviderRequest) returns (UpdateProviderResponse);
-  rpc DeleteProvider(DeleteProviderRequest) returns (DeleteProviderResponse);
+    rpc CreateProvider(CreateProviderRequest) returns (CreateProviderResponse) {}
 }
 
-// get providers
+service ProviderCategoryService {
+    rpc GetProviderCategories(GetProviderCategoriesRequest) returns (GetProviderCategoriesResponse) {}
+    rpc CreateProviderCategory(CreateProviderCategoryRequest) returns (CreateProviderCategoryResponse) {}
+    rpc UpdateProviderCategory(UpdateProviderCategoryRequest) returns (UpdateProviderCategoryResponse) {}
+}
 
-message GetProvidersRequest {
+// requests and responses Provider Category
+message GetProviderCategoriesRequest{}
+
+message GetProviderCategoriesResponse{
+    repeated ProviderCategory providerCategories = 1;
+}
+
+message CreateProviderCategoryRequest{
+    string name = 1;
+    bool qualificationRequired = 2;
+}
+
+message CreateProviderCategoryResponse{
+    ProviderCategory providerCategory = 1;
+}
+
+message UpdateProviderCategoryRequest{
+    string id = 1;
+    string name = 2;
+    bool qualificationRequired = 3;
+}
+message UpdateProviderCategoryResponse{
+    ProviderCategory providerCategory = 1;
+}
+
+// requests and responses Provider
+
+message GetProvidersRequest{}
+
+message GetProvidersResponse{
+    repeated Provider providers = 1;
+}
+
+message CreateProviderRequest{
   string name = 1;
+  string providerCategoryId = 2;
 }
 
-message GetProvidersResponse {
-  repeated Provider providers = 1;
+message CreateProviderResponse{
+    int32 status = 1;
+    repeated string errors = 2;
+    string id = 3;
 }
 
-// get provider
-message GetProviderData {
-  int32 id = 1;
-  string name = 2;
-  string description = 3;
+message UpdateProviderRequest{
+    string id = 1;
+    string name = 2;
+    string providerCategoryId = 3;
 }
 
-message GetProviderRequest {
-  int32 id = 1;
+message UpdateProviderResponse{
+    int32 status = 1;
+    repeated string errors = 2;
+    Provider provider = 3;
 }
 
-message GetProviderResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  GetProviderData provider = 3;
+// requests and responses Initial Qualification Questions
+
+message GetInitialQualificationQuestionsRequest{
+    string providerCategoryId = 1;
+}
+message GetInitialQualificationQuestionsResponse{
+    repeated InitialQualificationQuestions initialQualificationQuestions = 1;
 }
 
-// create provider 
-
-message CreateProviderRequest {
-  string name = 1;
-  string description = 2;
-
+message CreateInitialQualificationQuestionRequest{
+    string providerCategoryId = 1;
+    string question = 2;
+}
+message CreateInitialQualificationQuestionResponse{
+    InitialQualificationQuestions initialQualificationQuestion = 1;
 }
 
-message CreateProviderResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  int32 id = 3;
+message UpdateInitialQualificationQuestionRequest{
+    string id = 1;
+    string providerCategoryId = 2;
+    string question = 3;
 }
 
-// update provider
-
-message UpdateProviderRequest {
-  Provider provider = 1;
+message UpdateInitialQualificationQuestionResponse{
+    InitialQualificationQuestions initialQualificationQuestion = 1;
 }
-
-message UpdateProviderResponse {
-  Provider provider = 1;
-}
-
-
-// delete provider
-
-
-message DeleteProviderRequest {
-  string id = 1;
-}
-
-message DeleteProviderResponse {
-  string id = 1;
-}
-
-
