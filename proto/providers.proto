@@ -27,6 +27,8 @@ message InitialQualificationQuestions {
 
 service ProviderService {
     rpc CreateProvider(CreateProviderRequest) returns (CreateProviderResponse) {}
+    rpc GetProviders(GetProvidersRequest) returns (GetProvidersResponse) {}
+
 }
 
 service ProviderCategoryService {
