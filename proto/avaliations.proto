@@ -12,11 +12,13 @@ service AvaliationService {
 message CreateAvaliationRequest {
     int32 providerId = 1;
     int32 userId = 2;
+    repeated string questions = 3;
 }
 
 message CreateAvaliationResponse {
     int32 status = 1;
     repeated string error = 2;
     int32 id = 3;
+    repeated string questions = 4;
 }
 
