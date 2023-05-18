@@ -26,8 +26,9 @@ message InitialQualificationQuestions {
 // Services Protos
 
 service ProviderService {
-    rpc CreateProvider(CreateProviderRequest) returns (CreateProviderResponse) {}
-    rpc GetProviders(GetProvidersRequest) returns (GetProvidersResponse) {}
+    rpc CreateProvider (CreateProviderRequest) returns (CreateProviderResponse) {}
+    rpc FindAll (GetProvidersRequest) returns (GetProvidersResponse) {}
+    rpc FindOne (GetProviderRequest) returns (GetProviderResponse) {}
 
 }
 
@@ -68,6 +69,14 @@ message GetProvidersRequest{}
 
 message GetProvidersResponse{
     repeated Provider providers = 1;
+}
+
+message GetProviderRequest{
+    string id = 1;
+}
+
+message GetProviderResponse{
+    Provider provider = 1;
 }
 
 message CreateProviderRequest{
