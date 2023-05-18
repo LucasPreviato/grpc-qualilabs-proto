@@ -43,6 +43,7 @@ message CreateInitialQualificationRequest {
   string type = 3;
   string status = 4;
   repeated string questions = 5;
+  string userId = 6;
 }
 
 message CreateInitialQualificationResponse {
