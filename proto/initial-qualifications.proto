@@ -12,6 +12,7 @@ message InitialQualification {
   string updated_at = 7;
   repeated string questions = 8;
   repeated string answers = 9;
+  string userId = 10;
 }
 
 service InitialQualifications {
