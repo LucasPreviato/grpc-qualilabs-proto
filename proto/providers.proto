@@ -116,6 +116,8 @@ message GetProviderRequest {
 
 message GetProviderResponse {
   Provider provider = 1;
+  repeated string error = 2;
+  int32 status = 3;
 }
 
 message CreateProviderRequest {
