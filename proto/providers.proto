@@ -126,7 +126,9 @@ message CreateProviderRequest {
 }
 
 message CreateProviderResponse {
-  Provider provider = 1;
+  string id = 1;
+  repeated string errors = 2;
+  int32 status = 3;
 }
 
 message UpdateProviderRequest {
