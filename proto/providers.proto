@@ -108,6 +108,8 @@ message GetProvidersRequest {}
 
 message GetProvidersResponse {
   repeated Provider providers = 1;
+  repeated string errors = 2;
+  int32 status = 3;
 }
 
 message GetProviderRequest {
@@ -116,7 +118,7 @@ message GetProviderRequest {
 
 message GetProviderResponse {
   Provider provider = 1;
-  repeated string error = 2;
+  repeated string errors = 2;
   int32 status = 3;
 }
 
@@ -143,6 +145,8 @@ message UpdateProviderRequest {
 
 message UpdateProviderResponse {
   Provider provider = 1;
+  repeated string errors = 2;
+  int32 status = 3;
 }
 
 message DeleteProviderRequest {
@@ -151,6 +155,8 @@ message DeleteProviderRequest {
 
 message DeleteProviderResponse {
   Provider provider = 1;
+  repeated string errors = 2;
+  int32 status = 3;
 }
 
 // service initial qualification questions
