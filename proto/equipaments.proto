@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package equipament;
+
+message EquipamentData {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+    string brand = 4;
+    string model = 5;
+    string serial_number = 6;
+    string location = 7;
+    string observation = 8;
+}
+
+service EquipamentService {
+    rpc GetEquipament (GetEquipamentRequest) returns (GetEquipamentResponse) {}
+    // rpc ListEquipament (ListEquipamentRequest) returns (stream ListEquipamentResponse) {}
+    rpc CreateEquipament (CreateEquipamentRequest) returns (CreateEquipamentResponse) {}
+    // rpc UpdateEquipament (UpdateEquipamentRequest) returns (UpdateEquipamentResponse) {}
+    // rpc DeleteEquipament (DeleteEquipamentRequest) returns (DeleteEquipamentResponse) {}
+}
+
+message GetEquipamentRequest{
+    int32 id = 1;
+}
+
+message GetEquipamentResponse{
+    int32 status = 1;
+    repeated string error = 2;
+    EquipamentData equipament = 3;
+}
+
+message CreateEquipamentRequest{
+    string name = 1;
+    string description = 2;
+    string brand = 3;
+    string model = 4;
+    string serial_number = 5;
+    string location = 6;
+    string observation = 7;
+}
+
+message CreateEquipamentResponse{
+    int32 status = 1;
+    repeated string errors = 2;
+    int32 id = 3;
+}
+
