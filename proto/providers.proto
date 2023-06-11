@@ -95,11 +95,11 @@ message DeleteProviderCategoryResponse {
 // service provider
 
 service ProviderService {
-  rpc getAll(GetProvidersRequest) returns (GetProvidersResponse);
-  rpc findOne(GetProviderRequest) returns (GetProviderResponse);
-  rpc create(CreateProviderRequest) returns (CreateProviderResponse);
-  rpc update(UpdateProviderRequest) returns (UpdateProviderResponse);
-  rpc delete(DeleteProviderRequest) returns (DeleteProviderResponse);
+  rpc findAll (GetProvidersRequest) returns (GetProvidersResponse){}
+  rpc findOne (GetProviderRequest) returns (GetProviderResponse){}
+  rpc create (CreateProviderRequest) returns (CreateProviderResponse){}
+  rpc update (UpdateProviderRequest) returns (UpdateProviderResponse){}
+  rpc delete (DeleteProviderRequest) returns (DeleteProviderResponse){}
 }
 
 // Requests and Responses
