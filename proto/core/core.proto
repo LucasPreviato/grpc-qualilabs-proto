@@ -46,7 +46,7 @@ message CreateCompanyRequest {
     string address = 4;
     string city = 5;
     string state = 6;
-    string zip = 7;
+    string zipCode = 7;
     string country = 8;
     string phone = 9;
     string email = 10;
