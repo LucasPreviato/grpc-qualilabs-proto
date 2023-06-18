@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package company;
+package core;
 
 
 // Company proto
