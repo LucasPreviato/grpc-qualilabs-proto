@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 package core;
 
 // Company proto
@@ -77,8 +75,8 @@ message UnitData{
     string name = 3;
     string description = 4;
     int32 companyId = 5;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 7;
+    string createdAt = 6;
+    string updatedAt = 7;
 }
 
 message GetUnitRequest {
