@@ -15,7 +15,7 @@ service CompanyService {
 
 message CompanyData{
     string id = 1;
-    int32 uniqueId = 2;
+    int32 companyId = 2;
     string cnpj = 3;
     string companyName = 4;
     string tradingName = 5;
@@ -30,7 +30,7 @@ message CompanyData{
 }
 
 message GetCompanyRequest {
-    string id = 1;
+    int32 companyId = 1;
 }
 
 message GetCompanyResponse {
@@ -72,7 +72,7 @@ service UnitService {
 
 message UnitData{
     string id = 1;
-    int32 uniqueId = 2;
+    int32 unitId = 2;
     string name = 3;
     string description = 4;
     int32 companyId = 5;
@@ -81,7 +81,7 @@ message UnitData{
 }
 
 message GetUnitRequest {
-    int32 uniqueId = 1;
+    int32 unitId = 1;
 }
 
 message GetUnitResponse {
@@ -114,7 +114,7 @@ service DepartmentService {
 
 message DepartmentData{
     string id = 1;
-    int32 uniqueId = 2;
+    int32 departmentId = 2;
     string name = 3;
     string description = 4;
     int32 companyId = 5;
@@ -123,7 +123,7 @@ message DepartmentData{
 }
 
 message GetDepartmentRequest {
-    int32 uniqueId = 1;
+    int32 departmentId = 1;
 }
 
 message GetDepartmentResponse {
@@ -157,7 +157,7 @@ service JobsCategoryService {
 
 message JobsCategoryData{
     string id = 1;
-    int32 uniqueId = 2;
+    int32 jobCategoryId = 2;
     string name = 3;
     string description = 4;
     int32 companyId = 5;
@@ -166,7 +166,7 @@ message JobsCategoryData{
 }
 
 message GetJobsCategoryRequest {
-    int32 uniqueId = 1;
+    int32 jobCategoryId = 1;
 }
 
 message GetJobsCategoryResponse {
