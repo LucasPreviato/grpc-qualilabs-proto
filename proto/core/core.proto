@@ -160,8 +160,8 @@ message JobsCategoryData{
     string name = 3;
     string description = 4;
     int32 companyId = 5;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 7;
+    string createdAt = 6;
+    string updatedAt = 7;
     
 }
 
@@ -212,8 +212,8 @@ message JobsData{
     string salary = 12;
     string type = 13;
     string status = 14;
-    google.protobuf.Timestamp createdAt = 15;
-    google.protobuf.Timestamp updatedAt = 16;
+    string createdAt = 15;
+    string updatedAt = 16;
 }
 
 message GetJobsRequest {
@@ -274,8 +274,8 @@ message EmployeeData{
     int32 unitId = 13;
     int32 departmentId = 14;
     int32 jobId = 15;
-    google.protobuf.Timestamp createdAt = 16;
-    google.protobuf.Timestamp updatedAt = 17;
+    string createdAt = 16;
+    string updatedAt = 17;
 }
 
 message GetEmployeeRequest {
