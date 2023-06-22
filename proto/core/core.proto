@@ -13,7 +13,7 @@ service CompanyService {
 }
 
 message CompanyData{
-    string id = 1;
+    string resourceId = 1;
     int32 companyId = 2;
     string cnpj = 3;
     string companyName = 4;
@@ -69,14 +69,25 @@ service UnitService {
     // rpc DeleteUnit(DeleteUnitRequest) returns (DeleteUnitResponse) {}
 }
 
+// message UnitData{
+//     string id = 1;
+//     int32 unitId = 2;
+//     string name = 3;
+//     string description = 4;
+//     int32 companyId = 5;
+//     string createdAt = 6;
+//     string updatedAt = 7;
+// }
+
 message UnitData{
-    string id = 1;
+    string resourceId = 1;
     int32 unitId = 2;
-    string name = 3;
-    string description = 4;
-    int32 companyId = 5;
-    string createdAt = 6;
-    string updatedAt = 7;
+    int32 tableId = 3;
+    string name = 4;
+    string description = 5;
+    int32 companyId = 6;
+    string createdAt = 7;
+    string updatedAt = 8;
 }
 
 message GetUnitRequest {
@@ -112,13 +123,15 @@ service DepartmentService {
 }
 
 message DepartmentData{
-    string id = 1;
+    string resourceId = 1;
     int32 departmentId = 2;
-    string name = 3;
-    string description = 4;
-    int32 companyId = 5;
-    int32 unitId = 6;
-    string createdAt = 7;
+    int32 companyId = 3;
+    int32 unitId = 4;
+    int32 tableId = 5;
+    string name = 6;
+    string description = 7;
+    string createdAt = 8;
+    string updatedAt = 9;
 }
 
 message GetDepartmentRequest {
@@ -155,14 +168,14 @@ service JobsCategoryService {
 }
 
 message JobsCategoryData{
-    string id = 1;
+    string resourceId = 1;
     int32 jobCategoryId = 2;
-    string name = 3;
-    string description = 4;
-    int32 companyId = 5;
-    string createdAt = 6;
-    string updatedAt = 7;
-    
+    int32 companyId = 3;
+    int32 tableId = 4;
+    string name = 5;
+    string description = 6;
+    string createdAt = 7;
+    string updatedAt = 8;
 }
 
 message GetJobsCategoryRequest {
@@ -197,27 +210,21 @@ service JobsService {
     // rpc DeleteJobs(DeleteJobsRequest) returns (DeleteJobsResponse) {}
 }
 
-message JobsData{
-    string id = 1;
-    int32 uniqueId = 2;
-    string title = 3;
-    string description = 4;
-    int32 companyId = 5;
-    int32 categoryId = 6;
-    string city = 7;
-    string state = 8;
-    string country = 9;
-    string zipCode = 10;
-    string address = 11;
-    string salary = 12;
-    string type = 13;
-    string status = 14;
-    string createdAt = 15;
-    string updatedAt = 16;
+message JobsData {
+    string resourceId = 1;
+    int32 categoryId = 2;
+    int32 jobId = 3;
+    int32 companyId = 4;
+    int32 tableId = 5;
+    string title = 6;
+    string description = 7;
+    string salary = 8;
+    string createdAt = 9;
+    string updatedAt = 10;
 }
 
 message GetJobsRequest {
-    int32 uniqueId = 1;
+    int32 jobId = 1;
 }
 
 message GetJobsResponse {
@@ -231,14 +238,7 @@ message CreateJobsRequest {
     string description = 2;
     int32 companyId = 3;
     int32 categoryId = 4;
-    string city = 5;
-    string state = 6;
-    string country = 7;
-    string zipCode = 8;
-    string address = 9;
-    string salary = 10;
-    string type = 11;
-    string status = 12;
+    string salary = 5;
 }
 
 message CreateJobsResponse {
@@ -257,29 +257,30 @@ service EmployeeService {
     // rpc DeleteEmployee(DeleteEmployeeRequest) returns (DeleteEmployeeResponse) {}
 }
 
-
 message EmployeeData{
-    string id = 1;
-    int32 uniqueId = 2;
-    string firstName = 3;
-    string lastName = 4;
-    string email = 5;
-    string phone = 6;
-    string address = 7;
-    string city = 8;
-    string state = 9;
-    string country = 10;
-    string zipCode = 11;
-    int32 companyId = 12;
-    int32 unitId = 13;
-    int32 departmentId = 14;
-    int32 jobId = 15;
-    string createdAt = 16;
-    string updatedAt = 17;
+    string resourceId = 1;
+    int32 employeeId = 2;
+    int32 companyId = 3;
+    int32 unitId = 4;
+    int32 departmentId = 5;
+    int32 jobId = 6;
+    int32 tableId = 7;
+    string firstName = 8;
+    string lastName = 9;
+    string email = 10;
+    string phone = 11;
+    string address = 12;
+    string city = 13;
+    string state = 14;
+    string country = 15;
+    string zipCode = 16;
+    string companyEmail = 17;
+    string createdAt = 18;
+    string updatedAt = 19;
 }
 
 message GetEmployeeRequest {
-    int32 uniqueId = 1;
+    int32 employeeId = 1;
 }
 
 message GetEmployeeResponse {
@@ -298,10 +299,11 @@ message CreateEmployeeRequest {
     string state = 7;
     string country = 8;
     string zipCode = 9;
-    int32 companyId = 10;
-    int32 unitId = 11;
-    int32 departmentId = 12;
-    int32 jobId = 13;
+    string companyEmail = 10;
+    int32 companyId = 11;
+    int32 unitId = 12;
+    int32 departmentId = 13;
+    int32 jobId = 14;
 }
 
 message CreateEmployeeResponse {
