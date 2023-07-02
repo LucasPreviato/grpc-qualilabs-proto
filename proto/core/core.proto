@@ -145,7 +145,7 @@ message GetDepartmentResponse {
 
 message CreateDepartmentRequest {
     string name = 1;
-    string description = 2;;
+    string description = 2;
     int32 unitId = 4;
     int32 companyId = 5;
 }
