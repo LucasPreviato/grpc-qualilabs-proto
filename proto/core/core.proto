@@ -124,13 +124,14 @@ service DepartmentService {
 
 message DepartmentData{
     string resourceId = 1;
-    int32 departmentId = 2;
-    int32 tableId = 3;
-    string name = 4;
-    string description = 5;
-    string createdAt = 6;
-    string updatedAt = 7;
-    int32 unitId = 8;
+    int32 companyId = 2;
+    int32 departmentId = 3;
+    int32 tableId = 4;
+    string name = 5;
+    string description = 6;
+    string createdAt = 7;
+    string updatedAt = 8;
+    int32 unitId = 9;
 }
 
 message GetDepartmentRequest {
