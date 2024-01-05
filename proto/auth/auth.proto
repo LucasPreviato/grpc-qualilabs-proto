@@ -9,8 +9,9 @@ service AuthService{
 }
 // register
 message RegisterRequest{
-    string email = 1;
-    string password = 2;
+    string name = 1;
+    string email = 2;
+    string password = 3;
 }
 
 message RegisterResponse{
@@ -21,9 +22,8 @@ message RegisterResponse{
 // login
 
 message LoginRequest{
-    string name = 1;
-    string email = 2;
-    string password = 3;
+    string email = 1;
+    string password = 2;
 }
 
 message LoginResponse{
