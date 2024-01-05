@@ -21,14 +21,20 @@ message RegisterResponse{
 // login
 
 message LoginRequest{
-    string email = 1;
-    string password = 2;
+    string name = 1;
+    string email = 2;
+    string password = 3;
 }
 
 message LoginResponse{
     int32 status = 1;
     repeated string error = 2;
-    string token = 3;
+    int32 userId = 3;
+    string name = 4;
+    string email = 5;
+    string avatar = 6;
+    string access_token = 7;
+    string expiresAt = 8;
 }
 
 // validate
